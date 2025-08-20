@@ -216,12 +216,13 @@ body {
 }
 
 .mini-badr {
-    background-image: url('jalil-lab-nes-css/assets/badr-8-bit-removebg-preview_r1_c2.png');
+    background-image: url('projects/jalil-lab-nes-css/assets/badr-8-bit-removebg-preview_r1_c2.png');
     animation: miniWalk 1s infinite;
+    transform: scale(1.3);
 }
 
 .mini-jalil {
-    background-image: url('jalil-lab-nes-css/assets/jalil-8_r1_c1.png');
+    background-image: url('projects/jalil-lab-nes-css/assets/jalil-8_r1_c1.png');
     animation: miniWalk 1s infinite reverse;
 }
 
