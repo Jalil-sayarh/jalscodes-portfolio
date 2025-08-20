@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/projects/([^/]+)/?$",
-      "destination": "/projects/$1/index.html"
+      "source": "/projects/:project",
+      "destination": "/projects/:project/index.html"
     },
     {
-      "source": "/projects/([^/]+)/(.*)",
-      "destination": "/projects/$1/$2"
+      "source": "/projects/:project/:path*",
+      "destination": "/projects/:project/:path*"
     }
   ],
   "headers": [
