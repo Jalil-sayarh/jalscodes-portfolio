@@ -208,24 +208,9 @@ class BouncingIcons {
 }
 
 // Project Navigation
-function openProject(projectPath) {
-    sounds.playNavigation();
-    
-    // Add loading effect
-    const button = event.target.closest('.project-card').querySelector('.project-btn');
-    const originalText = button.textContent;
-    button.textContent = 'LOADING...';
-    button.classList.add('is-disabled');
-    
-    setTimeout(() => {
-        // Map project paths to their actual routes
-        const routeMap = {
-            'jalil-lab-nes-css': '/nes-css-project'
-        };
-        
-        const targetRoute = routeMap[projectPath] || `/${projectPath}`;
-        window.location.href = targetRoute;
-    }, 500);
+function openProject(projectId) {
+    // Navigate to the submodule project
+    window.location.href = `/projects/${projectId}/index.html`;
 }
 
 // Initialize everything
