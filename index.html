@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jalil's Lab - Personal Projects Portfolio</title>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background" id="animatedBackground">
+        <i class="nes-bulbasaur is-small bounce-icon" data-speed="1.2"></i>
+        <i class="nes-charmander is-small bounce-icon" data-speed="0.8"></i>
+        <i class="nes-squirtle is-small bounce-icon" data-speed="1.5"></i>
+        <i class="nes-pokeball is-small bounce-icon" data-speed="1.0"></i>
+        <i class="nes-mario is-small bounce-icon" data-speed="1.3"></i>
+        <i class="nes-kirby is-small bounce-icon" data-speed="0.9"></i>
+        <i class="nes-icon coin is-small bounce-icon" data-speed="1.6"></i>
+        <i class="nes-icon trophy is-small bounce-icon" data-speed="0.7"></i>
+        <i class="nes-octocat animate is-small bounce-icon" data-speed="1.0"></i>
+    </div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header-section">
+            <h1 class="nes-text is-primary main-title">JALIL'S LAB</h1>
+            <p class="nes-text subtitle">~ PERSONAL PROJECTS PORTFOLIO ~</p>
+        </header>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="nes-container with-title is-centered">
+                <p class="title">About This Lab</p>
+                <div class="about-content">
+                    <p class="nes-text about-text">
+                        Welcome to my digital laboratory! 🧪<br><br>
+                        This is where I experiment, create, and bring random ideas to life. 
+                        Each project here represents a different adventure in coding, 
+                        design, and pure creative chaos.<br><br>
+                        From nostalgic 8-bit interfaces to modern web experiments, 
+                        this portfolio showcases the beautiful mess that happens when 
+                        curiosity meets code! 🚀
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-section">
+            <h2 class="nes-text is-success section-title">~ EXPERIMENTS & PROJECTS ~</h2>
+            
+            <div class="projects-grid">
+                <!-- NES CSS Character Select Project -->
+                <div class="project-card" onclick="openProject('jalil-lab-nes-css')">
+                    <div class="nes-container with-title is-centered project-container">
+                        <p class="title">NES Character Select</p>
+                        <div class="project-preview">
+                            <div class="preview-image">
+                                <div class="mini-characters">
+                                    <div class="mini-badr"></div>
+                                    <div class="mini-vs">VS</div>
+                                    <div class="mini-jalil"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-description">
+                                A retro-styled character selection screen inspired by classic 
+                                arcade games. Features animated 8-bit characters, nostalgic 
+                                sound effects, and pure childhood nostalgia!
+                            </p>
+                            <div class="project-tags">
+                                <span class="nes-badge is-splited">
+                                    <span class="is-dark">HTML</span>
+                                    <span class="is-primary">CSS</span>
+                                </span>
+                                <span class="nes-badge is-splited">
+                                    <span class="is-dark">JS</span>
+                                    <span class="is-success">NES.css</span>
+                                </span>
+                            </div>
+                        </div>
+                        <button class="nes-btn is-primary project-btn">PLAY ▶</button>
+                    </div>
+                </div>
+
+                <!-- Placeholder for Future Projects -->
+                <div class="project-card coming-soon">
+                    <div class="nes-container with-title is-centered project-container">
+                        <p class="title">Coming Soon...</p>
+                        <div class="project-preview">
+                            <div class="preview-image coming-soon-preview">
+                                <i class="nes-icon star"></i>
+                                <p class="nes-text is-disabled">?</p>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-description">
+                                More exciting projects are brewing in the lab! 
+                                Stay tuned for new experiments in web development, 
+                                creative coding, and digital adventures.
+                            </p>
+                        </div>
+                        <button class="nes-btn is-disabled project-btn">SOON™</button>
+                    </div>
+                </div>
+
+                <!-- Another Placeholder -->
+                <div class="project-card coming-soon">
+                    <div class="nes-container with-title is-centered project-container">
+                        <p class="title">Mystery Project</p>
+                        <div class="project-preview">
+                            <div class="preview-image coming-soon-preview">
+                                <i class="nes-icon heart"></i>
+                                <p class="nes-text is-disabled">?</p>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-description">
+                                Something cool is being cooked up! Could be a game, 
+                                could be a tool, could be pure digital magic. 
+                                The mystery adds to the excitement! ✨
+                            </p>
+                        </div>
+                        <button class="nes-btn is-disabled project-btn">SOON™</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="nes-container is-dark">
+                <p class="nes-text is-primary">
+                    Built with ❤️ and lots of ☕ by Jalil
+                </p>
+                <p class="nes-text is-disabled footer-note">
+                    Press SPACE to toggle background music • Made for fun and learning
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Music Control -->
+    <div class="music-control">
+        <button class="nes-btn is-warning" id="musicToggle" onclick="backgroundMusic.toggle()">
+            🎵 Music: ON
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
