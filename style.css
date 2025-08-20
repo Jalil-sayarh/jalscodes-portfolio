@@ -301,13 +301,7 @@ body {
     margin-top: 10px;
 }
 
-/* Music Control */
-.music-control {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 100;
-}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

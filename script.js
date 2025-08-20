@@ -50,97 +50,7 @@ class SoundEffects {
 
 const sounds = new SoundEffects();
 
-// Background Music System
-class BackgroundMusic {
-    constructor() {
-        this.audioContext = null;
-        this.isPlaying = false;
-        this.masterGain = null;
-        this.init();
-    }
 
-    init() {
-        try {
-            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            this.masterGain = this.audioContext.createGain();
-            this.masterGain.connect(this.audioContext.destination);
-            this.masterGain.gain.value = 0.08; // Lower volume for portfolio page
-        } catch (e) {
-            console.log("Background music not supported");
-        }
-    }
-
-    async playBackgroundMusic() {
-        if (!this.audioContext || this.isPlaying) return;
-        
-        this.isPlaying = true;
-        
-        // Relaxing ambient melody for portfolio browsing
-        const melody = [
-            { note: 220.00, duration: 1500 }, // A3
-            { note: 261.63, duration: 1000 }, // C4
-            { note: 329.63, duration: 1000 }, // E4
-            { note: 392.00, duration: 1500 }, // G4
-            { note: 329.63, duration: 1000 }, // E4
-            { note: 293.66, duration: 1000 }, // D4
-            { note: 261.63, duration: 2000 }, // C4
-            { note: 220.00, duration: 2000 }, // A3
-        ];
-
-        const playNote = (frequency, duration, startTime) => {
-            const oscillator = this.audioContext.createOscillator();
-            const noteGain = this.audioContext.createGain();
-            
-            oscillator.connect(noteGain);
-            noteGain.connect(this.masterGain);
-            
-            oscillator.frequency.value = frequency;
-            oscillator.type = 'triangle'; // Softer sound for portfolio
-            
-            noteGain.gain.setValueAtTime(0, startTime);
-            noteGain.gain.linearRampToValueAtTime(0.3, startTime + 0.1);
-            noteGain.gain.linearRampToValueAtTime(0.1, startTime + duration * 0.001 - 0.2);
-            noteGain.gain.linearRampToValueAtTime(0, startTime + duration * 0.001);
-            
-            oscillator.start(startTime);
-            oscillator.stop(startTime + duration * 0.001);
-        };
-
-        const playMelody = () => {
-            if (!this.isPlaying) return;
-            
-            let currentTime = this.audioContext.currentTime;
-            
-            melody.forEach(({ note, duration }) => {
-                playNote(note, duration, currentTime);
-                currentTime += duration * 0.001;
-            });
-            
-            setTimeout(() => {
-                if (this.isPlaying) playMelody();
-            }, melody.reduce((sum, { duration }) => sum + duration, 0) + 3000);
-        };
-
-        playMelody();
-    }
-
-    stop() {
-        this.isPlaying = false;
-    }
-
-    toggle() {
-        if (this.isPlaying) {
-            this.stop();
-        } else {
-            this.playBackgroundMusic();
-        }
-        
-        const button = document.getElementById('musicToggle');
-        if (button) {
-            button.textContent = this.isPlaying ? '🎵 Music: ON' : '🔇 Music: OFF';
-        }
-    }
-}
 
 // Bouncing Background Icons
 class BouncingIcons {
@@ -216,18 +126,11 @@ class BouncingIcons {
     }
 
 // Initialize everything
-let backgroundMusic;
 let bouncingIcons;
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize background systems
-    backgroundMusic = new BackgroundMusic();
     bouncingIcons = new BouncingIcons();
-    
-    // Start background music after a short delay
-    setTimeout(() => {
-        backgroundMusic.playBackgroundMusic();
-    }, 2000);
 
     // Add hover sounds to buttons and project cards
     const buttons = document.querySelectorAll('.nes-btn');
@@ -252,13 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         element.addEventListener('click', () => sounds.playClick());
     });
 
-    // Space bar to toggle music
-    document.addEventListener('keydown', (e) => {
-        if (e.code === 'Space' && e.target.tagName !== 'BUTTON') {
-            e.preventDefault();
-            backgroundMusic.toggle();
-        }
-    });
+
 
     // Handle window resize
     window.addEventListener('resize', () => {
