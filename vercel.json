@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/projects/([^/]+)",
+      "src": "/projects/([^/]+)/?$",
       "dest": "/projects/$1/index.html"
     },
     {
