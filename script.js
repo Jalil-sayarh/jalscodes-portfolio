@@ -211,7 +211,7 @@ class BouncingIcons {
     function openProject(projectId) {
         // Replace the current filename with the project path
         const currentUrl = window.location.href;
-        const projectUrl = currentUrl.replace('/index.html', `/projects/${projectId}/index.html`);
+        const projectUrl = `/projects/${projectId}/index.html`;
         window.location.href = projectUrl;
     }
 
