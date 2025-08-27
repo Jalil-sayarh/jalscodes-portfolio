@@ -50,7 +50,11 @@ class SoundEffects {
 
 const sounds = new SoundEffects();
 
-
+// Project URL mappings for clean URLs
+const projectUrlMap = {
+    'jalil-lab-nes-css': '/retro-portfolio',
+    'liquid-glass': '/breathe'
+};
 
 // Bouncing Background Icons
 class BouncingIcons {
@@ -117,13 +121,19 @@ class BouncingIcons {
     }
 }
 
-// Project Navigation
-    function openProject(projectId) {
-        // Replace the current filename with the project path
-        const currentUrl = window.location.href;
-        const projectUrl = `/projects/${projectId}/index.html`;
-        window.location.href = projectUrl;
+// Project Navigation with clean URLs
+function openProject(projectId) {
+    const cleanUrl = projectUrlMap[projectId];
+    if (cleanUrl) {
+        // Use the clean URL if we have a mapping
+        window.location.href = cleanUrl;
+    } else {
+        // Fallback to the old URL structure
+        const currentPath = window.location.href;
+        const basePath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+        window.location.href = `${basePath}/projects/${projectId}/index.html`;
     }
+}
 
 // Initialize everything
 let bouncingIcons;
@@ -154,8 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
     interactiveElements.forEach(element => {
         element.addEventListener('click', () => sounds.playClick());
     });
-
-
 
     // Handle window resize
     window.addEventListener('resize', () => {

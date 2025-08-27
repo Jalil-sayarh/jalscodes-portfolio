@@ -1,6 +1,22 @@
 {
   "rewrites": [
     {
+      "source": "/retro-portfolio",
+      "destination": "/projects/jalil-lab-nes-css/index.html"
+    },
+    {
+      "source": "/retro-portfolio/:path*",
+      "destination": "/projects/jalil-lab-nes-css/:path*"
+    },
+    {
+      "source": "/breathe",
+      "destination": "/projects/liquid-glass/index.html"
+    },
+    {
+      "source": "/breathe/:path*",
+      "destination": "/projects/liquid-glass/:path*"
+    },
+    {
       "source": "/projects/:project",
       "destination": "/projects/:project/index.html"
     },
