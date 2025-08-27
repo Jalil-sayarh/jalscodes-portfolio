@@ -1,3 +1,6 @@
 [submodule "projects/jalil-lab-nes-css"]
 	path = projects/jalil-lab-nes-css
 	url = https://github.com/jalil-sayarh/jalil-lab-nes-css.git
+[submodule "projects/liquid-glass"]
+	path = projects/liquid-glass
+	url = https://github.com/Jalil-sayarh/liquid-glass
