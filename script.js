@@ -53,7 +53,8 @@ const sounds = new SoundEffects();
 // Project URL mappings for clean URLs
 const projectUrlMap = {
     'jalil-lab-nes-css': '/retro-portfolio',
-    'liquid-glass': '/breathe'
+    'liquid-glass': '/breathe',
+    'zellije-generator': '/zellije-generator'
 };
 
 // Bouncing Background Icons
