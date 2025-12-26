@@ -17,6 +17,14 @@
       "destination": "/projects/liquid-glass/:path*"
     },
     {
+      "source": "/zellije-generator",
+      "destination": "/projects/zellije-generator/index.html"
+    },
+    {
+      "source": "/zellije-generator/:path*",
+      "destination": "/projects/zellije-generator/:path*"
+    },
+    {
       "source": "/projects/:project",
       "destination": "/projects/:project/index.html"
     },
